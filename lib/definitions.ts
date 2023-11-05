@@ -1,8 +1,18 @@
 export type Restaurant = {
   id: number;
   name: string;
-  address1: string;
-  address2: string;
-  latitude: string;
-  longitude: string;
+  image_url: string;
+  street: string;
+  description: string;
+};
+
+export type MenuItem = {
+  id: string;
+  category: string;
+  restaurantId: number;
+  name: string;
+  topping: Array<string>;
+  rank: number;
+  price: number;
+  pizza_image_url: number;
 }
