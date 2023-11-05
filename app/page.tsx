@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const mediaImages = [
  {
@@ -23,7 +24,7 @@ const mediaImages = [
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen bg-gradient-to-tr from-neutral-100 to-orange-300">
       <div className="flex justify-center items-center p-4">
         <Image
           src="/logo.svg"
@@ -36,10 +37,12 @@ export default function Home() {
         <div className="h-20 flex flex-col justify-center items-center md:block md:h-52 w-fit p-4">
           <h1 className="font-bold text-2xl md:text-5xl mb-1 text-orange-400">Made by Napoletans.</h1>
           <h1 className="font-bold text-2xl md:text-5xl md:mb-3 mb-2 text-gray-50">Loved by all.</h1>
-          <Button className="bg-orange-400 hover:bg-gray-50 rounded-xl hover:text-orange-400 text-base h-8 px-3 md:h-9 md:px-4">
-            Choose the Restaurant
-            <ArrowRight className="md:w-6 md:h-8 ml-1 w-5 h-10"/>
-          </Button>
+          <Link href="/restaurants">
+            <Button className="h-8 px-3 md:h-9 md:px-4">
+              Choose the Restaurant
+              <ArrowRight className="md:w-6 md:h-8 ml-1 w-5 h-10"/>
+            </Button>
+          </Link>
         </div>
         <Image
           src="/pizza.png"
