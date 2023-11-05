@@ -1,18 +1,21 @@
 import { fetchRestaurants } from "@/lib/data";
 import RestaurantCard from "@/components/ui/shared/restaurant-card";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function PickingLayout() {
   const restaurants = await fetchRestaurants();
   return (
     <main className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-neutral-100 to-orange-300">
     <div className="flex flex-col gap-8 justify-center items-center p-4">
-      <Image
-        src="/logo.svg"
-        alt="logo"
-        width={120}
-        height={80}
-      />
+      <Link href="/">
+        <Image
+          src="/logo.svg"
+          alt="logo"
+          width={120}
+          height={80}
+        />
+      </Link>
       <h1 className="text-orange-500 md:text-3xl text-xl text-center font-bold">
         Choose the Restaurant either from Estonia or Germany
       </h1>

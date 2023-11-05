@@ -14,5 +14,5 @@ export type MenuItem = {
   topping: Array<string>;
   rank: number;
   price: number;
-  pizza_image_url: number;
+  pizza_image_url: string;
 }

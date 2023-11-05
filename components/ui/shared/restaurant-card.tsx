@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card"
 import { ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface IRestaurantCardProps {
   restaurant: Restaurant;
@@ -40,9 +41,11 @@ export default function RestaurantCard({restaurant}: IRestaurantCardProps) {
             <MapPin className="text-orange-400"/>
             <p className="text-base font-bold text-gray-50">{restaurant.street}</p>
           </div>
-          <Button className="h-5 px-4 md:h-7 md:px-5">
-            <ArrowRight className="md:w-4 md:h-6 w-3 h-5"/>
-          </Button>
+          <Link href={`/restaurants/${restaurant.id}`}>
+            <Button className="h-5 px-4 md:h-7 md:px-5">
+              <ArrowRight className="md:w-4 md:h-6 w-3 h-5"/>
+            </Button>
+          </Link>
         </div>
       </CardFooter>
     </Card>
