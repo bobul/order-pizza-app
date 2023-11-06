@@ -1,19 +1,22 @@
+'use client';
+
 import {MenuItem} from "@/lib/definitions";
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
     DialogHeader, DialogTitle,
     DialogTrigger
 } from "@/components/ui/dialog";
+import { useCartStore } from "@/store/cart";
 
 interface IPizzaCardProps {
     pizza: MenuItem
 }
 export default function PizzaCard({pizza}: IPizzaCardProps) {
+    const {add: handleAddToCart} = useCartStore();
     return (
         <div className={"h-fit w-72 p-2 flex flex-col"}>
             <Image
@@ -56,7 +59,10 @@ export default function PizzaCard({pizza}: IPizzaCardProps) {
                                     {pizza.topping.map((toppingItem => `${toppingItem} `))}
                                 </DialogDescription>
                             </DialogHeader>
-                            <Button className="w-10/12 self-center md:self-start m-4">
+                            <Button
+                              className="w-10/12 self-center md:self-start m-4"
+                              onClick={() => handleAddToCart(pizza)}
+                            >
                                 Add to cart for {pizza.price}€
                             </Button>
                         </div>

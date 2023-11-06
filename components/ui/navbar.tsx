@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import {ShoppingCartIcon} from "lucide-react";
+import CartButton from "@/components/ui/shared/cart-button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import CartItems from "@/components/ui/cart-items";
 
 export default function Navbar() {
     return (
@@ -30,7 +32,14 @@ export default function Navbar() {
                     <p className="text-base font-bold text-gray-50">Events</p>
                 </Link>
             </div>
-            <ShoppingCartIcon />
+          <Dialog>
+            <DialogTrigger>
+              <CartButton />
+            </DialogTrigger>
+            <DialogContent>
+              <CartItems />
+            </DialogContent>
+          </Dialog>
         </nav>
     )
 }
