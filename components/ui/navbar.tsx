@@ -36,7 +36,7 @@ export default function Navbar() {
             <DialogTrigger>
               <CartButton />
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="max-h-screen overflow-auto p-4">
               <CartItems />
             </DialogContent>
           </Dialog>
