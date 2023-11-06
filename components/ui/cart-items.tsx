@@ -5,9 +5,11 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrashIcon } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function CartItems() {
   const { cart, remove, add: handleAddToCart, totalPrice, removeAll } = useCartStore();
+  const { toast } = useToast();
 
   if (cart.length === 0)
     return (
@@ -67,7 +69,12 @@ export default function CartItems() {
             <p className="text-gray-400">Total: {totalPrice().toFixed(2)}€</p>
             <div className="flex gap-4 items-center">
               <TrashIcon className="cursor-pointer text-gray-400" onClick={() => removeAll()}/>
-              <Button>
+              <Button onClick={
+                () => toast({
+                  title: "Your order has been successfully accepted!",
+                  description: "We have already started to prepare our amazing pizza."
+                })
+              }>
                 Checkout
                 <ArrowRight />
               </Button>
