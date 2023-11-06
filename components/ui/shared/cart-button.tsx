@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { ShoppingCartIcon } from "lucide-react";
 import { useCartStore } from "@/store/cart";
 

@@ -11,12 +11,15 @@ import {
     DialogTrigger
 } from "@/components/ui/dialog";
 import { useCartStore } from "@/store/cart";
+import { useToast } from "@/components/ui/use-toast";
 
 interface IPizzaCardProps {
     pizza: MenuItem
 }
 export default function PizzaCard({pizza}: IPizzaCardProps) {
     const {add: handleAddToCart} = useCartStore();
+    const { toast } = useToast();
+
     return (
         <div className={"h-fit w-72 p-2 flex flex-col"}>
             <Image
@@ -57,11 +60,20 @@ export default function PizzaCard({pizza}: IPizzaCardProps) {
                                 <DialogTitle>{pizza.name}</DialogTitle>
                                 <DialogDescription>
                                     {pizza.topping.map((toppingItem => `${toppingItem} `))}
+                                    <p className="text-sm text-gray-700 mt-1">
+                                        30 cm
+                                    </p>
                                 </DialogDescription>
                             </DialogHeader>
                             <Button
                               className="w-10/12 self-center md:self-start m-4"
-                              onClick={() => handleAddToCart(pizza)}
+                              onClick={() => {
+                                  handleAddToCart(pizza)
+                                  toast({
+                                      title: `${pizza.name} is added!`,
+                                      description: "You can view it from your cart."
+                                  })
+                              }}
                             >
                                 Add to cart for {pizza.price}€
                             </Button>
