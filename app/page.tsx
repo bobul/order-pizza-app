@@ -24,7 +24,7 @@ const mediaImages = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-tr from-neutral-100 to-orange-300">
+    <main>
       <div className="flex justify-center items-center p-4">
         <Image
           src="/logo.svg"

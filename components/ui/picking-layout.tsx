@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function PickingLayout() {
   const restaurants = await fetchRestaurants();
   return (
-    <main className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-neutral-100 to-orange-300">
+    <main className="flex flex-col justify-center items-center">
     <div className="flex flex-col gap-8 justify-center items-center p-4">
       <Link href="/">
         <Image
