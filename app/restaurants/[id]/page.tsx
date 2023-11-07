@@ -1,4 +1,4 @@
-import {fetchMenuItemsByRestaurantId, fetchRestaurantById} from "@/lib/data";
+import { fetchRestaurantById } from "@/lib/data";
 import PizzaGrid from "@/components/ui/pizza-grid";
 import {Suspense} from "react";
 import Loader from "@/components/ui/shared/loader";
