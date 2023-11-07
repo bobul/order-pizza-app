@@ -70,11 +70,13 @@ export default function CartItems() {
             <div className="flex gap-4 items-center">
               <TrashIcon className="cursor-pointer text-gray-400" onClick={() => removeAll()}/>
               <Button onClick={
-                () => toast({
-                  title: "Your order has been successfully accepted!",
+                () => {
+                  toast({
+                  title: "Your order has been successfully accepted! ✅",
                   description: "We have already started to prepare our amazing pizza."
-                })
-              }>
+                });
+                  removeAll();
+                }}>
                 Checkout
                 <ArrowRight />
               </Button>
