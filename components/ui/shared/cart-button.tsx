@@ -7,7 +7,7 @@ export default function CartButton() {
   const { count } = useCartStore();
 
   return (
-    <div className="p-2 rounded-md text-slate-700 hover:text-gray-50 relative transition duration-200 ease-in-out cursor-pointer">
+    <div className="p-2 rounded-md md:ml-48 text-slate-700 hover:text-gray-50 relative transition duration-200 ease-in-out cursor-pointer">
       <ShoppingCartIcon className="w-6 h-6" strokeWidth={2} />
       <Label item={count()} />
     </div>

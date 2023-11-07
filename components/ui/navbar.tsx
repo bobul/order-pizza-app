@@ -8,7 +8,7 @@ import CartItems from "@/components/ui/cart-items";
 
 export default function Navbar() {
     return (
-        <nav className="h-16 bg-orange-500 flex flex-auto justify-around items-center">
+        <nav className="h-16 bg-orange-500 flex justify-around items-center">
           <Link href="/">
             <Image
               src="/logo.svg"
@@ -27,16 +27,16 @@ export default function Navbar() {
               className="block md:hidden"
             />
           </Link>
-            <div className="flex justify-around md:w-1/4 w-1/2">
-                <Link href={`/restaurants/book`}>
-                    <p className="text-base font-bold text-gray-50">Book</p>
-                </Link>
-                <Link href={`/restaurants/about`}>
-                    <p className="text-base font-bold text-gray-50">About</p>
-                </Link>
-                <Link href={`/restaurants/events`}>
-                    <p className="text-base font-bold text-gray-50">Events</p>
-                </Link>
+            <div className="flex  justify-around md:w-1/4 w-1/2">
+              <Link href={`/restaurants/book`}>
+                <p className="text-base font-bold text-gray-50">Book</p>
+              </Link>
+              <Link href={`/restaurants/about`}>
+                <p className="text-base font-bold text-gray-50">About</p>
+              </Link>
+              <Link href={`/restaurants/events`}>
+                <p className="text-base font-bold text-gray-50">Events</p>
+              </Link>
             </div>
           <Dialog>
             <DialogTrigger>
