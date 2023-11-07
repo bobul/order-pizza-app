@@ -4,7 +4,7 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "@/components/ui/use-toast";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ function isDateBeforeToday(date: Date) {
 }
 
 function generateTimeOptions() {
-  const startTime = 16 * 60; // 10:00 converted to minutes
+  const startTime = 11 * 60; // 10:00 converted to minutes
   const endTime = 22 * 60; // 22:00 converted to minutes
   const interval = 30; // 30 minutes interval
 
@@ -92,14 +92,15 @@ export default function Page() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-10/12 flex justify-around items-center">
-        <div className="flex flex-col gap-2">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col justify-center items-center p-6 gap-4 bg-orange-300 rounded-xl">
+        <div className="flex md:flex-row flex-col justify-center md:gap-16 gap-2">
+        <div className="flex flex-col">
           <FormField
             control={form.control}
             name="firstName"
             render={({field}) => (
               <FormItem>
-                <FormLabel>First Name</FormLabel>
+                <FormLabel className="text-gray-50">First Name</FormLabel>
                 <FormControl>
                   <Input placeholder="John" {...field} />
                 </FormControl>
@@ -112,7 +113,7 @@ export default function Page() {
             name="lastName"
             render={({field}) => (
               <FormItem>
-                <FormLabel>Last Name</FormLabel>
+                <FormLabel className="text-gray-50">Last Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Doe" {...field} />
                 </FormControl>
@@ -125,7 +126,7 @@ export default function Page() {
             name="email"
             render={({field}) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-gray-50">Email</FormLabel>
                 <FormControl>
                   <Input placeholder="john.doe@example.com" {...field} />
                 </FormControl>
@@ -134,17 +135,17 @@ export default function Page() {
             )}
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col space-y-1.5">
           <FormField
             control={form.control}
             name="time"
             render={({field}) => (
               <FormItem>
-                <FormLabel>Time</FormLabel>
+                <FormLabel className="text-gray-50">Desired time</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select time for the booking" />
+                      <SelectValue placeholder="Time" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent className="max-h-52 overflow-auto">
@@ -160,11 +161,11 @@ export default function Page() {
             name="numberOfPeople"
             render={({field}) => (
               <FormItem>
-                <FormLabel>Number of people</FormLabel>
+                <FormLabel className="text-gray-50">Number of people</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a number of people for the booking" />
+                      <SelectValue placeholder="People" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent className="max-h-52 overflow-auto">
@@ -180,7 +181,7 @@ export default function Page() {
             name="dateOfBooking"
             render={({field}) => (
               <FormItem className="flex flex-col">
-                <FormLabel>Date of Booking</FormLabel>
+                <FormLabel className="text-gray-50">Date of the booking</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -214,7 +215,8 @@ export default function Page() {
             )}
           />
         </div>
-        <Button type="submit">Submit</Button>
+        </div>
+        <Button type="submit" className="w-full">Submit</Button>
       </form>
     </Form>
   )
