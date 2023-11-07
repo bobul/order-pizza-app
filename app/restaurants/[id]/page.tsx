@@ -1,7 +1,7 @@
 import { fetchRestaurantById } from "@/lib/data";
 import PizzaGrid from "@/components/ui/pizza-grid";
 import {Suspense} from "react";
-import Loader from "@/components/ui/shared/loader";
+import PizzaCardsSkeleton from "@/components/ui/skeletons/pizza-cards-skeleton";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               Welcome to {restaurant.name}!
           </h1>
           <h1 className="font-bold text-xl mt-2">Pizza Daily Offers</h1>
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={<PizzaCardsSkeleton />}>
               <PizzaGrid id={id} />
           </Suspense>
       </main>

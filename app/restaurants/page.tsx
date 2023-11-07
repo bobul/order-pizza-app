@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import PickingLayout from "@/components/ui/picking-layout";
-import PickingLayoutSkeleton from "@/components/ui/picking-layout-skeleton";
+import PickingLayoutSkeleton from "@/components/ui/skeletons/picking-layout-skeleton";
 
 export default function Page() {
   return (

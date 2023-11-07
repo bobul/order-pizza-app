@@ -1,5 +1,6 @@
 import { fetchMenuItemsByRestaurantId } from "@/lib/data";
 import PizzaCard from "@/components/ui/shared/pizza-card";
+import PizzaCardsSkeleton from "@/components/ui/skeletons/pizza-cards-skeleton";
 
 interface IPizzaGridProps {
     id: string;

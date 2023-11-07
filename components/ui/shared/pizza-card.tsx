@@ -21,7 +21,7 @@ export default function PizzaCard({pizza}: IPizzaCardProps) {
     const { toast } = useToast();
 
     return (
-        <div className={"h-fit w-72 p-2 flex flex-col"}>
+        <div className="h-fit w-72 p-2 flex flex-col">
             <Image
                     src={pizza.pizza_image_url}
                     alt={pizza.name}
