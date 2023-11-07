@@ -8,7 +8,7 @@ export default function RestaurantsLayout({
     }
 ) {
     return (
-        <div className="bg-white">
+        <div>
             <Navbar />
             {children}
             <Toaster />
